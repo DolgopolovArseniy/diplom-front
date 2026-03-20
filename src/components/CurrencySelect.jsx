@@ -1,18 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronDown, Library } from "lucide-react";
-import { CURRENCIES } from "../constants/currencies";
+
 import CurrencyList from "./CurrencyList";
 
-function CurrencySelect() {
+function CurrencySelect({ selectedCurrency, setSelectedCurrency }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedCurrency, setSelectedCurrency] = useState(CURRENCIES[0]);
   const ref = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (ref.current && !ref.current.contains(e.target)) {
         setIsOpen(false);
-        setSelectedCurrency;
       }
     };
 
@@ -28,10 +26,10 @@ function CurrencySelect() {
       >
         <img
           src={selectedCurrency.logo}
-          alt={selectedCurrency.label}
+          alt={selectedCurrency.code}
           className="w-8"
         />
-        <span>{selectedCurrency.label}</span>
+        <span>{selectedCurrency.code}</span>
         <ChevronDown
           size={23}
           className={`transition-transform ${isOpen ? "rotate-180" : ""}`}

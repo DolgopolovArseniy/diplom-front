@@ -9,6 +9,11 @@
   --color-donathell-secondary: #f1f3f1;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  display: none;
+}
+
 body {
   @apply bg-[#141517];
 }

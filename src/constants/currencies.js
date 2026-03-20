@@ -8,37 +8,37 @@ import ua from "../assets/images/ua.png";
 
 export const CURRENCIES = [
   {
-    label: "USDT",
+    code: "USDT",
     logo: usdt,
     crypto: true,
   },
   {
-    label: "SOL",
+    code: "SOL",
     logo: sol,
     crypto: true,
   },
   {
-    label: "ETH",
+    code: "ETH",
     logo: eth,
     crypto: true,
   },
   {
-    label: "BTC",
+    code: "BTC",
     logo: btc,
     crypto: true,
   },
   {
-    label: "EUR",
+    code: "EUR",
     logo: eu,
     crypto: false,
   },
   {
-    label: "USD",
+    code: "USD",
     logo: us,
     crypto: false,
   },
   {
-    label: "UAH",
+    code: "UAH",
     logo: ua,
     crypto: false,
   },
