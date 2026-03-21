@@ -1,29 +1,55 @@
 import { createBrowserRouter, redirect } from "react-router";
 import RootLayout from "./layouts/RootLayout";
-import DonationPage from "./pages/DonationPage";
+import DonatePage from "./pages/DonatePage";
+import LoginPage from "./pages/LoginPage";
 import { getUserBySlug } from "./services/api";
 import NotFound from "./components/NotFound";
+import SignupPage from "./pages/SignupPage";
+import DonationsPage from "./pages/DonationsPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
-    children: [],
-  },
-  {
-    path: "/:donationSlug",
-    element: <DonationPage />,
-    loader: async ({ params }) => {
-      try {
-        const user = await getUserBySlug(params.donationSlug);
-        return user;
-      } catch (err) {
-        if (err.response?.status === 404) {
-          return redirect("/404");
-        }
-        throw err;
-      }
-    },
+    children: [
+      {
+        path: "/:donationSlug",
+        element: <DonatePage />,
+        loader: async ({ params }) => {
+          try {
+            const user = await getUserBySlug(params.donationSlug);
+            return user;
+          } catch (err) {
+            if (err.response?.status === 404) {
+              return redirect("/404");
+            }
+            throw err;
+          }
+        },
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+        loader: () => {
+          const token = localStorage.getItem("token");
+          if (token) return redirect("/");
+        },
+      },
+      {
+        path: "/signup",
+        element: <SignupPage />,
+      },
+      {
+        path: "/",
+        index: true,
+        element: (
+          <ProtectedRoute>
+            <DonationsPage />,
+          </ProtectedRoute>
+        ),
+      },
+    ],
   },
   {
     path: "/404",

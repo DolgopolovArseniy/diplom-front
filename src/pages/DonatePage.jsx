@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { useLoaderData, useParams } from "react-router";
 import { createTransaction } from "../services/api";
 
-export default function DonationPage() {
+export default function DonatePage() {
   const [selectedCurrency, setSelectedCurrency] = useState(CURRENCIES[0]);
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
@@ -54,10 +54,8 @@ export default function DonationPage() {
 
   return (
     <>
-      <header className="flex items-center justify-center h-20 border-b-2 border-[#101115] mt-2">
-        <h1 className="text-donathell-main font-bold text-5xl">Donathell</h1>
-      </header>
-      <main className="mx-auto min-h-[calc(100vh-5rem-0.5rem)] max-w-3xl w-full flex items-center justify-center text-donathell-secondary">
+      <title>Donate | Donathell</title>
+      <main className="mx-auto min-h-[calc(100vh-5rem-0.5rem)] max-w-3xl flex items-center justify-center text-donathell-secondary">
         <div className="flex items-center justify-center flex-col min-h-120 max-w-full mb-10">
           <div className="w-full bg-[#202123] py-4 px-6 mb-2.5 rounded-xl min-h-18 flex gap-4 border border-[#404143]  items-center">
             <p>
