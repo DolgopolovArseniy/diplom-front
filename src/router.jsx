@@ -15,7 +15,8 @@ const router = createBrowserRouter([
     element: <DonationPage />,
     loader: async ({ params }) => {
       try {
-        await getUserBySlug(params.donationSlug);
+        const user = await getUserBySlug(params.donationSlug);
+        return user;
       } catch (err) {
         if (err.response?.status === 404) {
           return redirect("/404");

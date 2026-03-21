@@ -3,7 +3,7 @@ import CurrencySelect from "../components/CurrencySelect";
 import DonationFormField from "../components/DonationFormField";
 import { CURRENCIES } from "../constants/currencies";
 import toast from "react-hot-toast";
-import { useParams } from "react-router";
+import { useLoaderData, useParams } from "react-router";
 import { createTransaction } from "../services/api";
 
 export default function DonationPage() {
@@ -12,7 +12,16 @@ export default function DonationPage() {
   const [amount, setAmount] = useState("");
   const [message, setMessage] = useState("");
 
+  const user = useLoaderData();
+
   const { donationSlug } = useParams();
+
+  function resetForm() {
+    setName("");
+    setAmount("");
+    setMessage("");
+    setSelectedCurrency(CURRENCIES[0]);
+  }
 
   async function submitTransaction() {
     const numAmount = Number(amount);
@@ -36,6 +45,7 @@ export default function DonationPage() {
 
     try {
       await createTransaction(newTransaction);
+      resetForm();
       toast.success("Donation has been sent");
     } catch {
       toast.error("Something went wrong, please try again");
@@ -47,9 +57,17 @@ export default function DonationPage() {
       <header className="flex items-center justify-center h-20 border-b-2 border-[#101115] mt-2">
         <h1 className="text-donathell-main font-bold text-5xl">Donathell</h1>
       </header>
-      <main className="mx-auto h-[calc(100vh-5rem-0.5rem)] max-w-3xl w-full flex items-center justify-center text-donathell-secondary">
-        <div className="flex items-center justify-center flex-col min-h-120 w-full mb-10">
-          <div className="w-full bg-[#202123] py-4 px-6 rounded-t-xl h-18 flex gap-4 border border-[#404143]">
+      <main className="mx-auto min-h-[calc(100vh-5rem-0.5rem)] max-w-3xl w-full flex items-center justify-center text-donathell-secondary">
+        <div className="flex items-center justify-center flex-col min-h-120 max-w-full mb-10">
+          <div className="w-full bg-[#202123] py-4 px-6 mb-2.5 rounded-xl min-h-18 flex gap-4 border border-[#404143]  items-center">
+            <p>
+              Donate to:{" "}
+              <span className="font-bold text-xl text-donathell-main">
+                {user.username}
+              </span>
+            </p>
+          </div>
+          <div className="w-full bg-[#202123] py-4 px-6 rounded-t-xl min-h-18 flex gap-4 border border-[#404143] flex-wrap">
             <DonationFormField
               label="Name"
               inputPlaceholder="Senya"
@@ -78,7 +96,7 @@ export default function DonationPage() {
             }}
           ></textarea>
           <button
-            className="self-end bg-[#202123] mt-3 rounded-xl text-xl px-6 py-2 cursor-pointer hover:bg-[#363739] duration-200 shadow-md"
+            className="self-end mt-3 rounded-xl text-xl px-6 py-2 cursor-pointer duration-200 shadow-md border border-donathell-main text-donathell-main hover:bg-donathell-main hover:text-[#101115] font-bold"
             onClick={submitTransaction}
           >
             Submit

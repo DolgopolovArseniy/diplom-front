@@ -21,7 +21,7 @@ function CurrencySelect({ selectedCurrency, setSelectedCurrency }) {
   return (
     <div ref={ref} className="relative">
       <button
-        className="bg-[#2b2c2e] rounded-md text-2xl pl-2 pr-1 h-10 border border-[#959697] flex items-center justify-between gap-2 cursor-pointer hover:bg-[#555658] duration-200 w-36"
+        className={`bg-[#2b2c2e] rounded-md text-2xl pl-2 pr-1 h-10 border border-[#959697] flex items-center justify-between gap-2 cursor-pointer hover:bg-[#555658] duration-200 w-36 ${isOpen && "border-donathell-main  shadow-sm/40 shadow-donathell-main"}`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <img
