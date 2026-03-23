@@ -13,7 +13,7 @@ function CurrencyList({
         (cur) => (
           <li
             key={cur.code}
-            className={`text-2xl flex items-center justify-start px-4 gap-4 cursor-pointer hover:bg-[#555658] duration-200 py-2 border-b border-[#959697] first:border-t-0 last:border-b-0 ${!crypto ? "last:rounded-b-xl" : ""} ${selectedCurrency.code === cur.code ? "bg-[#555658]" : ""}`}
+            className={`text-2xl flex items-center justify-start px-4 gap-4 cursor-pointer hover:bg-[#555658] duration-200 py-1.5 border-b border-[#959697] first:border-t-0 last:border-b-0 ${!crypto ? "last:rounded-b-xl" : ""} ${selectedCurrency.code === cur.code ? "bg-[#555658]" : ""}`}
             onClick={() => {
               setSelectedCurrency(cur);
               setIsOpen(!isOpen);

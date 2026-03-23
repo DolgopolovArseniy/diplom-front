@@ -19,15 +19,16 @@ function CurrencySelect({ selectedCurrency, setSelectedCurrency }) {
   }, []);
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative flex flex-col">
+      <label>Currency</label>
       <button
-        className={`bg-[#2b2c2e] rounded-md text-2xl pl-2 pr-1 h-10 border border-[#959697] flex items-center justify-between gap-2 cursor-pointer hover:bg-[#555658] duration-100 w-36 ${isOpen && "border-donathell-main  shadow-sm/40 shadow-donathell-main"}`}
+        className={`bg-[#2b2c2e] rounded-md text-xl pl-2 pr-1 h-9 border border-[#959697] flex items-center justify-around cursor-pointer hover:bg-[#555658] duration-100 w-38 ${isOpen && "ring-4 ring-donathell-main"}`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <img
           src={selectedCurrency.logo}
           alt={selectedCurrency.code}
-          className="w-8"
+          className="w-7"
         />
         <span>{selectedCurrency.code}</span>
         <ChevronDown
@@ -37,9 +38,11 @@ function CurrencySelect({ selectedCurrency, setSelectedCurrency }) {
       </button>
 
       <div
-        className={`overflow-hidden absolute z-10 mt-1 bg-[#2b2c2e] rounded-xl w-36 border border-[#959697] ${isOpen ? "opacity-100 h-100" : "opacity-0 h-0"} transition-all duration-200`}
+        className={`overflow-hidden absolute z-10 top-16 right-0.5 bg-[#2b2c2e] rounded-xl w-36 border border-[#959697] ${isOpen ? "opacity-100 max-h-100" : "opacity-0 max-h-0"} transition-all duration-200`}
       >
-        <p className="font-light px-2 pb-1 border-b border-[#555658]">Crypto</p>
+        <p className="font-light px-2 pb-0.5 border-b border-[#555658]">
+          Crypto
+        </p>
         <CurrencyList
           isOpen={isOpen}
           selectedCurrency={selectedCurrency}

@@ -57,17 +57,14 @@ export default function DonatePage() {
     <>
       <title>Donate | Donathell</title>
       <Header />
-      <main className="mx-auto min-h-[calc(100vh-5rem-0.5rem)] max-w-3xl flex items-center justify-center text-donathell-secondary">
-        <div className="flex items-center justify-center flex-col min-h-120 max-w-full mb-10">
-          <div className="w-full bg-[#202123] py-4 px-6 mb-2.5 rounded-xl min-h-18 flex gap-4 border border-[#404143]  items-center">
-            <p>
-              Donate to:{" "}
-              <span className="font-bold text-xl text-donathell-main">
-                {user.username}
-              </span>
-            </p>
+      <main className="mx-auto min-h-[calc(100vh-5rem-0.5rem)] flex items-center justify-center text-donathell-secondary max-w-3xl;">
+        <div className="flex items-center justify-center flex-col min-h-120 w-full max-w-3xl mb-10 px-4">
+          <div className="w-full bg-[#202123] mb-2.5 rounded-xl min-h-18 flex border border-[#404143] items-center justify-center">
+            <h2 className="font-bold text-4xl text-donathell-main">
+              {user.username}
+            </h2>
           </div>
-          <div className="w-full bg-[#202123] py-4 px-6 rounded-t-xl min-h-18 flex gap-4 border border-[#404143] flex-wrap">
+          <div className="w-full bg-[#202123] py-4 px-6 rounded-t-xl min-h-18 flex items-end justify-between gap-4 border border-[#404143] flex-wrap">
             <DonationFormField
               label="Name"
               inputPlaceholder="Senya"
@@ -96,7 +93,7 @@ export default function DonatePage() {
             }}
           ></textarea>
           <button
-            className="self-end mt-3 rounded-xl text-xl px-6 py-2 cursor-pointer duration-200 shadow-md border border-donathell-main text-donathell-main hover:bg-donathell-main hover:text-[#101115] font-bold"
+            className="self-stretch mt-3 rounded-xl text-xl px-6 py-2 cursor-pointer duration-200 shadow-md border bg-donathell-main text-[#101115] hover:bg-[#32970d] font-bold"
             onClick={submitTransaction}
           >
             Submit
