@@ -19,10 +19,10 @@ function CurrencySelect({ selectedCurrency, setSelectedCurrency }) {
   }, []);
 
   return (
-    <div ref={ref} className="relative flex flex-col">
-      <label>Currency</label>
+    <div ref={ref} className="relative flex flex-col gap-1">
+      <label className="text-sm text-[#c1c2c1]">Currency</label>
       <button
-        className={`bg-[#2b2c2e] rounded-md text-xl pl-2 pr-1 h-9 border border-[#959697] flex items-center justify-around cursor-pointer hover:bg-[#555658] duration-100 w-38 ${isOpen && "ring-4 ring-donathell-main"}`}
+        className={`bg-[#2b2c2e] rounded-md pl-2 pr-1 h-9 border border-[#959697] flex items-center justify-around cursor-pointer hover:bg-[#555658] duration-100 w-38 ${isOpen && "ring-4 ring-donathell-main"}`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <img
@@ -38,9 +38,9 @@ function CurrencySelect({ selectedCurrency, setSelectedCurrency }) {
       </button>
 
       <div
-        className={`overflow-hidden absolute z-10 top-16 right-0.5 bg-[#2b2c2e] rounded-xl w-36 border border-[#959697] ${isOpen ? "opacity-100 max-h-100" : "opacity-0 max-h-0"} transition-all duration-200`}
+        className={`overflow-hidden absolute z-10 top-16 -right-1 bg-[#2b2c2e] rounded-xl w-40 border border-[#959697] ${isOpen ? "opacity-100 max-h-100" : "opacity-0 max-h-0"} transition-all duration-200`}
       >
-        <p className="font-light px-2 pb-0.5 border-b border-[#555658]">
+        <p className="font-light mx-1.5 pb-0.5 border-b border-[#555658]">
           Crypto
         </p>
         <CurrencyList
@@ -50,7 +50,9 @@ function CurrencySelect({ selectedCurrency, setSelectedCurrency }) {
           setSelectedCurrency={setSelectedCurrency}
           setIsOpen={setIsOpen}
         />
-        <p className="font-light px-2 pb-1 border-y border-[#555658]">Fiat</p>
+        <p className="font-light mx-1.5 pb-0.5 border-y border-[#555658]">
+          Fiat
+        </p>
         <CurrencyList
           isOpen={isOpen}
           selectedCurrency={selectedCurrency}

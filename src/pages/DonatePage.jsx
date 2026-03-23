@@ -55,12 +55,12 @@ export default function DonatePage() {
 
   return (
     <>
-      <title>Donate | Donathell</title>
+      <title>Donate - Donathell</title>
       <Header />
-      <main className="mx-auto min-h-[calc(100vh-5rem-0.5rem)] flex items-center justify-center text-donathell-secondary max-w-3xl;">
+      <main className="mx-auto min-h-[calc(100vh-5rem-0.5rem)] flex items-center justify-center text-donathell-secondary max-w-3xl">
         <div className="flex items-center justify-center flex-col min-h-120 w-full max-w-3xl mb-10 px-4">
           <div className="w-full bg-[#202123] mb-2.5 rounded-xl min-h-18 flex border border-[#404143] items-center justify-center">
-            <h2 className="font-bold text-4xl text-donathell-main">
+            <h2 className="font-bold text-3xl text-donathell-main">
               {user.username}
             </h2>
           </div>
@@ -86,7 +86,7 @@ export default function DonatePage() {
           </div>
           <textarea
             placeholder="Message..."
-            className="w-full placeholder-[#c7ccc8a8] bg-[#202123] rounded-b-xl resize-none h-96 px-6 py-4 focus:outline-none shadow-lg/30 border-x border-b border-[#404143]"
+            className="w-full placeholder-[#c7ccc8a8] bg-[#202123] rounded-b-xl resize-none h-64 px-6 py-4 focus:outline-none shadow-lg/30 border-x border-b border-[#404143]"
             value={message}
             onChange={(e) => {
               setMessage(e.target.value);

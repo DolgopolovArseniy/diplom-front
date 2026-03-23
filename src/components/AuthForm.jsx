@@ -7,7 +7,7 @@ export default function AuthForm({ isLoading, type, children, ...props }) {
       {...props}
       className="w-full placeholder-[#c7ccc8a8] bg-[#202123] rounded-lg resize-none px-6 py-4 focus:outline-none shadow-lg/30 border-x border border-[#404143] mb-20 flex flex-col items-stretch gap-3.5"
     >
-      <h2 className="font-medium text-3xl self-center">
+      <h2 className="font-medium text-2xl self-center">
         {isSignup ? "Sign up" : "Log in"} to{" "}
         <span className="text-donathell-main font-bold">Donathell</span>
       </h2>

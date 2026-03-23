@@ -6,7 +6,7 @@ export default function AuthFormInput({ isPassword, ...props }) {
   return (
     <div className="relative">
       <input
-        className={`w-full bg-[#2b2c2e] rounded-md outline-none text-xl placeholder-[#c7ccc8a8] p-2 border border-[#959697] h-8 focus:border-donathell-main duration-100 ${showPassword ? "font-mono" : ""}`}
+        className={`w-full bg-[#2b2c2e] rounded-md outline-none placeholder-[#c7ccc8a8] p-2 border border-[#959697] h-9 focus:ring-4 focus:ring-donathell-main duration-100 ${showPassword ? "font-mono" : ""}`}
         type={showPassword ? "password" : "text"}
         {...props}
       />
