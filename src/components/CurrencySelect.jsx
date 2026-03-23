@@ -35,28 +35,27 @@ function CurrencySelect({ selectedCurrency, setSelectedCurrency }) {
           className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
-      {isOpen && (
-        <div className="absolute z-10 mt-1 bg-[#2b2c2e] rounded-xl w-36 border border-[#959697]">
-          <p className="font-light px-2 pb-1 border-b border-[#555658]">
-            Crypto
-          </p>
-          <CurrencyList
-            isOpen={isOpen}
-            selectedCurrency={selectedCurrency}
-            crypto={true}
-            setSelectedCurrency={setSelectedCurrency}
-            setIsOpen={setIsOpen}
-          />
-          <p className="font-light px-2 pb-1 border-y border-[#555658]">Fiat</p>
-          <CurrencyList
-            isOpen={isOpen}
-            selectedCurrency={selectedCurrency}
-            crypto={false}
-            setSelectedCurrency={setSelectedCurrency}
-            setIsOpen={setIsOpen}
-          />
-        </div>
-      )}
+
+      <div
+        className={`overflow-hidden absolute z-10 mt-1 bg-[#2b2c2e] rounded-xl w-36 border border-[#959697] ${isOpen ? "opacity-100 h-100" : "opacity-0 h-0"} transition-all duration-200`}
+      >
+        <p className="font-light px-2 pb-1 border-b border-[#555658]">Crypto</p>
+        <CurrencyList
+          isOpen={isOpen}
+          selectedCurrency={selectedCurrency}
+          crypto={true}
+          setSelectedCurrency={setSelectedCurrency}
+          setIsOpen={setIsOpen}
+        />
+        <p className="font-light px-2 pb-1 border-y border-[#555658]">Fiat</p>
+        <CurrencyList
+          isOpen={isOpen}
+          selectedCurrency={selectedCurrency}
+          crypto={false}
+          setSelectedCurrency={setSelectedCurrency}
+          setIsOpen={setIsOpen}
+        />
+      </div>
     </div>
   );
 }

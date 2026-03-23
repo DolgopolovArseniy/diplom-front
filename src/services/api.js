@@ -31,3 +31,8 @@ export const loginApi = async (data) => {
   const res = await api.post("/users/login", data);
   return res.data;
 };
+
+export const signupApi = async (data) => {
+  const res = await api.post("/users/signup", data);
+  return res.data;
+};

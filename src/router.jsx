@@ -14,21 +14,6 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-        path: "/:donationSlug",
-        element: <DonatePage />,
-        loader: async ({ params }) => {
-          try {
-            const user = await getUserBySlug(params.donationSlug);
-            return user;
-          } catch (err) {
-            if (err.response?.status === 404) {
-              return redirect("/404");
-            }
-            throw err;
-          }
-        },
-      },
-      {
         path: "/login",
         element: <LoginPage />,
         loader: () => {
@@ -45,11 +30,26 @@ const router = createBrowserRouter([
         index: true,
         element: (
           <ProtectedRoute>
-            <DonationsPage />,
+            <DonationsPage />
           </ProtectedRoute>
         ),
       },
     ],
+  },
+  {
+    path: "/:donationSlug",
+    element: <DonatePage />,
+    loader: async ({ params }) => {
+      try {
+        const user = await getUserBySlug(params.donationSlug);
+        return user;
+      } catch (err) {
+        if (err.response?.status === 404) {
+          return redirect("/404");
+        }
+        throw err;
+      }
+    },
   },
   {
     path: "/404",
