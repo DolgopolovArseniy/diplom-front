@@ -1,15 +1,12 @@
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import Input from "../ui/Input";
 
 export default function AuthFormInput({ isPassword, ...props }) {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="relative">
-      <input
-        className={`w-full bg-[#2b2c2e] rounded-md outline-none placeholder-[#c7ccc8a8] p-2 border border-[#959697] h-9 focus:ring-4 focus:ring-donathell-main duration-100 ${showPassword ? "font-mono" : ""}`}
-        type={showPassword ? "password" : "text"}
-        {...props}
-      />
+      <Input className="w-full p-2" showPassword={showPassword} {...props} />
       {isPassword && (
         <button
           type="button"

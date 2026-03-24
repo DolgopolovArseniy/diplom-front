@@ -1,11 +1,11 @@
 import { useState } from "react";
-import CurrencySelect from "../components/CurrencySelect";
-import DonationFormField from "../components/DonationFormField";
+import CurrencySelect from "../components/common/CurrencySelect";
+import DonationFormField from "../components/form/DonationFormField";
 import { CURRENCIES } from "../constants/currencies";
 import toast from "react-hot-toast";
 import { useLoaderData, useParams } from "react-router";
 import { createTransaction } from "../services/api";
-import Header from "../components/Header";
+import Header from "../components/common/Header";
 
 export default function DonatePage() {
   const [selectedCurrency, setSelectedCurrency] = useState(CURRENCIES[0]);
@@ -59,12 +59,12 @@ export default function DonatePage() {
       <Header />
       <main className="mx-auto min-h-[calc(100vh-5rem-0.5rem)] flex items-center justify-center text-donathell-secondary max-w-3xl">
         <div className="flex items-center justify-center flex-col min-h-120 w-full max-w-3xl mb-10 px-4">
-          <div className="w-full bg-[#202123] mb-2.5 rounded-xl min-h-18 flex border border-[#404143] items-center justify-center">
+          <div className="w-full bg-[#121315] mb-2.5 rounded-lg min-h-18 flex border border-[#202123] items-center justify-center">
             <h2 className="font-bold text-3xl text-donathell-main">
               {user.username}
             </h2>
           </div>
-          <div className="w-full bg-[#202123] py-4 px-6 rounded-t-xl min-h-18 flex items-end justify-between gap-4 border border-[#404143] flex-wrap">
+          <div className="w-full bg-[#121315] py-4 px-6 rounded-t-lg min-h-18 flex items-end justify-between gap-4 border border-[#202123] flex-wrap">
             <DonationFormField
               label="Name"
               inputPlaceholder="Senya"
@@ -86,14 +86,14 @@ export default function DonatePage() {
           </div>
           <textarea
             placeholder="Message..."
-            className="w-full placeholder-[#c7ccc8a8] bg-[#202123] rounded-b-xl resize-none h-64 px-6 py-4 focus:outline-none shadow-lg/30 border-x border-b border-[#404143]"
+            className="w-full placeholder-[#c7ccc8a8] bg-[#121315] rounded-b-lg resize-none h-64 px-6 py-4 focus:outline-none shadow-lg/30 border-x border-b border-[#202123]"
             value={message}
             onChange={(e) => {
               setMessage(e.target.value);
             }}
           ></textarea>
           <button
-            className="self-stretch mt-3 rounded-xl text-xl px-6 py-2 cursor-pointer duration-200 shadow-md border bg-donathell-main text-[#101115] hover:bg-[#32970d] font-bold"
+            className="self-stretch mt-3 rounded-lg text-xl px-6 py-2 cursor-pointer duration-200 shadow-md border bg-donathell-main text-[#101115] hover:bg-[#32970d] font-bold"
             onClick={submitTransaction}
           >
             Submit

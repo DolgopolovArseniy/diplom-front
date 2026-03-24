@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
-import AuthFormField from "../components/AuthFormField";
-import AuthFormInput from "../components/AuthFormInput";
-import AuthErrorMessage from "../components/AuthErrorMessage";
+import AuthFormField from "../components/form/AuthFormField";
+import AuthFormInput from "../components/form/AuthFormInput";
+import AuthErrorMessage from "../components/form/AuthFormErrorMessage";
 import { signupApi } from "../services/api";
-import AuthForm from "../components/AuthForm";
+import AuthForm from "../components/form/AuthForm";
 import { useAuthSubmit } from "../hooks/useAuthSubmit";
 
 export default function SignupPage() {

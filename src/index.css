@@ -6,7 +6,7 @@
     "Exo 2", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --color-donathell-main: #54fb15;
-  --color-donathell-secondary: #f1f3f1;
+  --color-donathell-secondary: #e8ebe8;
 }
 
 input[type="number"]::-webkit-inner-spin-button,

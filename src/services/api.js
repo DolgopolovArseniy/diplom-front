@@ -24,15 +24,15 @@ export const createTransaction = async (data) => {
 
 export const getMe = async () => {
   const res = await api.get("/users/me");
-  return res.data;
+  return res.data.data.user;
 };
 
 export const loginApi = async (data) => {
   const res = await api.post("/users/login", data);
-  return res.data;
+  return { token: res.data.token, user: res.data.data.user };
 };
 
 export const signupApi = async (data) => {
   const res = await api.post("/users/signup", data);
-  return res.data;
+  return { token: res.data.token, user: res.data.data.user };
 };

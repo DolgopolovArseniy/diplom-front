@@ -1,12 +1,12 @@
 import { createBrowserRouter, redirect } from "react-router";
-import RootLayout from "./layouts/RootLayout";
+import RootLayout from "./components/layout/RootLayout";
 import DonatePage from "./pages/DonatePage";
 import LoginPage from "./pages/LoginPage";
 import { getUserBySlug } from "./services/api";
-import NotFound from "./components/NotFound";
+import NotFound from "./components/common/NotFound";
 import SignupPage from "./pages/SignupPage";
 import DonationsPage from "./pages/DonationsPage";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/common/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
