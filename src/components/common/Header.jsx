@@ -9,7 +9,7 @@ export default function Header({ isAuthenticated = false }) {
   const { user, logout } = useAuth();
   const { isOpen, setIsOpen, ref } = useClickOutside();
   return (
-    <header className="h-16 border-b border-[#101115] flex justify-center pt-2.5 pb-0.5">
+    <header className="h-16 border-b border-[#101115] flex justify-center pt-2.5 pb-0.5 sticky top-0 bg-[#141517]">
       <div
         className={`flex items-center ${isAuthenticated ? "justify-between" : "justify-center"} h-full w-310`}
       >

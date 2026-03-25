@@ -22,6 +22,11 @@ export const createTransaction = async (data) => {
   return res.data;
 };
 
+export const getTransactions = async () => {
+  const res = await api.get("/transactions");
+  return res.data.data.transactions;
+};
+
 export const getMe = async () => {
   const res = await api.get("/users/me");
   return res.data.data.user;

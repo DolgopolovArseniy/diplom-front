@@ -11,15 +11,8 @@ export function AuthProvider({ children }) {
 
   const isAuthenticated = !!token;
 
-  useEffect(() => {
-    if (token) {
-      localStorage.setItem("token", token);
-    } else {
-      localStorage.removeItem("token");
-    }
-  }, [token]);
-
   function logout() {
+    localStorage.removeItem("token");
     setToken(null);
     setUser(null);
   }
@@ -27,17 +20,22 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     async function fetchUser() {
       try {
-        const user = await getMe();
-        setUser(user);
-      } catch {
+        const userData = await getMe();
+        setUser(userData);
+      } catch (err) {
+        console.error("Failed to fetch user:", err);
         logout();
       }
     }
 
-    if (token) fetchUser();
-  }, []);
+    if (token && !user) {
+      fetchUser();
+    }
+  }, [token, user]);
 
   function login(newToken, newUser) {
+    localStorage.setItem("token", newToken);
+
     setToken(newToken);
     setUser(newUser);
   }
