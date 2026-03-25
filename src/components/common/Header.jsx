@@ -9,7 +9,7 @@ export default function Header({ isAuthenticated = false }) {
   const { user, logout } = useAuth();
   const { isOpen, setIsOpen, ref } = useClickOutside();
   return (
-    <header className="h-16 border-b-2 border-[#101115] flex justify-center pt-2.5 pb-0.5">
+    <header className="h-16 border-b border-[#101115] flex justify-center pt-2.5 pb-0.5">
       <div
         className={`flex items-center ${isAuthenticated ? "justify-between" : "justify-center"} h-full w-310`}
       >
@@ -39,7 +39,7 @@ export default function Header({ isAuthenticated = false }) {
             >
               <ul className="border-b border-[#2c2c2e] flex flex-col gap-1.5 pb-1.5">
                 <Link
-                  to={`/${user.donationSlug}`}
+                  to={`/${user?.donationSlug}`}
                   className={className}
                   target="_blank"
                   rel="noreferrer"

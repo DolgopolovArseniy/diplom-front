@@ -7,6 +7,7 @@ import NotFound from "./components/common/NotFound";
 import SignupPage from "./pages/SignupPage";
 import DonationsPage from "./pages/DonationsPage";
 import ProtectedRoute from "./components/common/ProtectedRoute";
+import HomeLayout from "./components/layout/HomeLayout";
 
 const router = createBrowserRouter([
   {
@@ -27,12 +28,29 @@ const router = createBrowserRouter([
       },
       {
         path: "/",
-        index: true,
         element: (
           <ProtectedRoute>
-            <DonationsPage />
+            <HomeLayout />
           </ProtectedRoute>
         ),
+        children: [
+          {
+            path: "/donations",
+            element: <DonationsPage />,
+          },
+          {
+            path: "/payouts",
+            element: <DonationsPage />,
+          },
+          {
+            path: "/notifications",
+            element: <DonationsPage />,
+          },
+          {
+            path: "/fundraising",
+            element: <DonationsPage />,
+          },
+        ],
       },
     ],
   },
