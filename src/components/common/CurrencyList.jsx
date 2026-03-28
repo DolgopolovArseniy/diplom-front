@@ -13,7 +13,7 @@ function CurrencyList({
         (cur) => (
           <li
             key={cur.code}
-            className={`flex items-center justify-start px-4 gap-4 cursor-pointer hover:bg-[#101112] hover:text-[#f7f8f7] duration-200 py-1 rounded-sm ${selectedCurrency.code === cur.code ? "bg-[#101112]" : ""}`}
+            className={`flex items-center justify-start px-4 gap-4 cursor-pointer hover:bg-white/5 hover:text-[#f7f8f7] duration-200 py-1 rounded-xl ${selectedCurrency.code === cur.code ? "bg-white/5" : ""}`}
             onClick={() => {
               setSelectedCurrency(cur);
               setIsOpen(!isOpen);

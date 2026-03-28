@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router";
+import "../glass.css";
 
 export default function DonationsPage() {
   const transactions = useLoaderData();
@@ -26,8 +27,8 @@ export default function DonationsPage() {
           <span>{transactions.length} total</span>
         </div>
         {transactions.length > 0 ? (
-          <div className="rounded-lg border border-[#202123] overflow-hidden shadow-lg/15">
-            <table className="w-full bg-[#121315]">
+          <div className="rounded-3xl bg-[#121315] border border-[#202123] overflow-hidden shadow-lg/15">
+            <table className="w-full  glass">
               <thead>
                 <tr className="border-b border-[#101115]">
                   <th className={thClassName}>Donor</th>
@@ -53,7 +54,7 @@ export default function DonationsPage() {
                       {formatDate(t.transactionDate)}
                     </td>
                     <td className={tdClassName}>
-                      <span className="border border-[#202123] px-2 py-1 rounded-full">
+                      <span className="border border-[#202123] px-2 py-1 rounded-full glass">
                         {t.currency}
                       </span>
                     </td>

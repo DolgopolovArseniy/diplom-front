@@ -42,12 +42,17 @@ const router = createBrowserRouter([
             path: "/donations",
             element: <DonationsPage />,
             loader: async () => {
+              const token = localStorage.getItem("token");
+              if (!token) return redirect("/login");
+
               try {
                 const transactions = await getTransactions();
                 return transactions;
               } catch (err) {
                 if (err.response?.status === 404) {
                   return redirect("/404");
+                } else if (err.response?.status === 401) {
+                  return redirect("/login");
                 }
                 throw err;
               }

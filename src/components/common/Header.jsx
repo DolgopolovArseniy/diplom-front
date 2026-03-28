@@ -5,7 +5,7 @@ import { ChevronDown, LogOut, PanelTop, Settings2 } from "lucide-react";
 
 export default function Header({ isAuthenticated = false }) {
   const className =
-    "flex items-center justify-center gap-2.5 cursor-pointer hover:bg-[#101112] hover:text-[#f7f8f7] duration-200 py-1 rounded-lg";
+    "flex items-center justify-center gap-2.5 cursor-pointer hover:bg-white/5 duration-200 py-1 rounded-xl";
   const { user, logout } = useAuth();
   const { isOpen, setIsOpen, ref } = useClickOutside();
   return (
@@ -13,15 +13,15 @@ export default function Header({ isAuthenticated = false }) {
       <div
         className={`flex items-center ${isAuthenticated ? "justify-between" : "justify-center"} h-full w-310`}
       >
-        <Link to="/">
-          <h1 className="text-donathell-main font-bold text-4xl cursor-pointer pb-2">
+        <Link to="/" className="rounded-xl px-2.5">
+          <h1 className="text-donathell-main font-bold text-4xl cursor-pointer pb-2 inline-block">
             Donathell
           </h1>
         </Link>
         {isAuthenticated && (
           <div ref={ref} className="relative">
             <button
-              className="cursor-pointer font-semibold flex items-center justify-center"
+              className="cursor-pointer font-semibold flex items-center justify-center rounded-xl px-2"
               onClick={() => setIsOpen(!isOpen)}
             >
               {user ? (
@@ -35,7 +35,7 @@ export default function Header({ isAuthenticated = false }) {
               />
             </button>
             <div
-              className={`absolute overflow-hidden z-10 left-1/2 -translate-x-1/2 top-9 bg-[#131416] rounded-lg flex flex-col p-1.5 gap-2 ${isOpen ? "opacity-100 max-h-100 pointer-events-auto" : "opacity-0 max-h-0 pointer-events-none"} transition-all duration-150 min-w-42 border border-[#202123]`}
+              className={`absolute overflow-hidden z-10 left-1/2 -translate-x-1/2 top-10 rounded-xl flex flex-col p-1.5 gap-2 ${isOpen ? "opacity-100 max-h-100 pointer-events-auto" : "opacity-0 max-h-0 pointer-events-none"} transition-all duration-150 min-w-42 glass-dropdown`}
             >
               <ul className="border-b border-[#2c2c2e] flex flex-col gap-1.5 pb-1.5">
                 <Link

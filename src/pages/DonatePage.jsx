@@ -59,12 +59,12 @@ export default function DonatePage() {
       <Header />
       <main className="mx-auto min-h-[calc(100vh-5rem-0.5rem)] flex items-center justify-center text-donathell-secondary max-w-3xl">
         <div className="flex items-center justify-center flex-col min-h-120 w-full max-w-3xl mb-10 px-4">
-          <div className="w-full bg-[#121315] mb-2.5 rounded-lg min-h-18 flex border border-[#202123] items-center justify-center">
+          <div className="w-full bg-[#121315] border border-[#202123] mb-2.5 rounded-3xl min-h-18 flex  items-center justify-center glass">
             <h2 className="font-bold text-3xl text-donathell-main">
               {user.username}
             </h2>
           </div>
-          <div className="w-full bg-[#121315] py-4 px-6 rounded-t-lg min-h-18 flex items-end justify-between gap-4 border border-[#202123] flex-wrap">
+          <div className="w-full bg-[#121315] py-4 px-6 rounded-t-3xl min-h-18 flex items-end justify-between gap-4  flex-wrap border-x border-t border-[#202123] glass">
             <DonationFormField
               label="Name"
               inputPlaceholder="Senya"
@@ -86,14 +86,14 @@ export default function DonatePage() {
           </div>
           <textarea
             placeholder="Message..."
-            className="w-full placeholder-[#c7ccc8a8] bg-[#121315] rounded-b-lg resize-none h-64 px-6 py-4 focus:outline-none shadow-lg/30 border-x border-b border-[#202123]"
+            className="w-full placeholder-[#c7ccc8a8] bg-[#121315] rounded-b-3xl resize-none h-64 px-6 py-4 focus:outline-none shadow-lg/30 glass-input border-x border-b border-[#202123]"
             value={message}
             onChange={(e) => {
               setMessage(e.target.value);
             }}
           ></textarea>
           <button
-            className="self-stretch mt-3 rounded-lg text-xl px-6 py-2 cursor-pointer duration-200 shadow-md border bg-donathell-main text-[#101115] hover:bg-[#32970d] font-bold"
+            className="self-stretch mt-3 rounded-2xl text-xl px-6 py-2 cursor-pointer duration-200 bg-donathell-main text-[#101115] hover:bg-[#32970d] font-bold glass-button"
             onClick={submitTransaction}
           >
             Submit

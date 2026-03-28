@@ -10,7 +10,7 @@ export default function AuthFormInput({ isPassword, ...props }) {
       {isPassword && (
         <button
           type="button"
-          className="cursor-pointer hover:bg-[#555658] rounded-full duration-100 absolute right-1 top-1/2 -translate-y-1/2 p-0.75"
+          className="cursor-pointer hover:bg-[#555658] rounded-full duration-100 absolute right-1 top-1/2 -translate-y-1/2 p-2"
           onClick={() => setShowPassword(!showPassword)}
         >
           {showPassword ? <EyeOff size={24} /> : <Eye size={24} />}

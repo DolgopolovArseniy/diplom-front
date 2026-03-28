@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-
+import "../../glass.css";
 import CurrencyList from "./CurrencyList";
 import { useClickOutside } from "../../hooks/useClickOutside";
 
@@ -10,7 +10,7 @@ function CurrencySelect({ selectedCurrency, setSelectedCurrency }) {
     <div ref={ref} className="relative flex flex-col gap-1">
       <label className="text-sm text-[#c1c2c1]">Currency</label>
       <button
-        className={`bg-[#131416] rounded-md pl-2 pr-1 h-9 border border-[#202123] flex items-center justify-around cursor-pointer hover:bg-[#101112] hover:text-[#f7f8f7] duration-100 w-38 ${isOpen && "ring-4 ring-donathell-main"}`}
+        className={`bg-[#131416] rounded-xl pl-2 pr-1 h-11 border border-[#202123] flex items-center justify-around cursor-pointer hover:bg-[#101112] hover:text-[#f7f8f7] duration-100 w-38 glass-input`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <img
@@ -26,7 +26,7 @@ function CurrencySelect({ selectedCurrency, setSelectedCurrency }) {
       </button>
 
       <div
-        className={`overflow-hidden absolute z-10 top-17 left-1/2 -translate-x-1/2 bg-[#131416] rounded-lg w-40 border border-[#202123] ${isOpen ? "opacity-100 max-h-100" : "opacity-0 max-h-0"} transition-all duration-200`}
+        className={`overflow-hidden absolute z-10 top-18.5 left-1/2 -translate-x-1/2 rounded-2xl w-40 ${isOpen ? "opacity-100 max-h-100" : "opacity-0 max-h-0"} transition-all duration-200 glass-dropdown`}
       >
         <p className="font-light mx-1.5 pb-0.5 border-b border-[#2c2c2e]">
           Crypto
