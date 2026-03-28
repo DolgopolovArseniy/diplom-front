@@ -17,6 +17,12 @@ export default function DonationsPage() {
       minute: "2-digit",
     });
   }
+  function formatAmount(amount) {
+    return Number(amount).toLocaleString("uk-UA", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  }
 
   return (
     <>
@@ -28,13 +34,13 @@ export default function DonationsPage() {
         </div>
         {transactions.length > 0 ? (
           <div className="rounded-3xl bg-[#121315] border border-[#202123] overflow-hidden shadow-lg/15">
-            <table className="w-full  glass">
+            <table className="w-full glass">
               <thead>
                 <tr className="border-b border-[#101115]">
                   <th className={thClassName}>Donor</th>
                   <th className={thClassName}>Date</th>
                   <th className={thClassName}>Currency</th>
-                  <th className={thClassName}>Amount</th>
+                  <th className="text-right py-2 px-5 font-semibold">Amount</th>
                 </tr>
               </thead>
               <tbody>
@@ -58,7 +64,9 @@ export default function DonationsPage() {
                         {t.currency}
                       </span>
                     </td>
-                    <td className={tdClassName}>{t.amount}</td>
+                    <td className="py-4 px-5 align-top text-right">
+                      {formatAmount(t.amount)}
+                    </td>
                   </tr>
                 ))}
               </tbody>
