@@ -10,7 +10,7 @@ function CurrencySelect({ selectedCurrency, setSelectedCurrency }) {
     <div ref={ref} className="relative flex flex-col gap-1">
       <label className="text-sm text-[#c1c2c1]">Currency</label>
       <button
-        className={`bg-[#131416] rounded-xl pl-2 pr-1 h-11 border border-[#202123] flex items-center justify-around cursor-pointer hover:bg-[#101112] hover:text-[#f7f8f7] duration-100 w-38 glass-input`}
+        className={`bg-[#131416] rounded-xl pl-2 pr-1 h-11 flex items-center justify-around cursor-pointer hover:bg-[#101112] hover:text-[#f7f8f7] duration-100 w-38 glass-input`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <img
