@@ -23,7 +23,7 @@ export default function SignupPage() {
   return (
     <>
       <title>Sign up - Donathell</title>
-      <main className="mx-auto min-h-[calc(100vh-5rem-0.5rem)] max-w-lg flex items-center justify-center text-donathell-secondary">
+      <main className="mx-auto flex min-h-[calc(100dvh-4rem)] w-full max-w-lg items-center justify-center px-4 py-8 text-donathell-secondary sm:py-12">
         <AuthForm
           onSubmit={handleSubmit(onSubmit)}
           type="signup"

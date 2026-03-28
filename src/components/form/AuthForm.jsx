@@ -6,9 +6,9 @@ export default function AuthForm({ isLoading, type, children, ...props }) {
   return (
     <form
       {...props}
-      className="w-full placeholder-[#c7ccc8a8] bg-[#121315] rounded-3xl resize-none px-6 py-4 focus:outline-none shadow-lg/30 glass mb-20 flex flex-col items-stretch gap-3.5"
+      className="glass mb-10 flex w-full max-w-full flex-col items-stretch gap-3.5 rounded-3xl bg-[#121315] px-4 py-4 shadow-lg/30 sm:mb-16 sm:px-6 md:mb-20"
     >
-      <h2 className="font-medium text-2xl self-center">
+      <h2 className="self-center text-center text-xl font-medium sm:text-2xl">
         {isSignup ? "Sign up" : "Log in"} to{" "}
         <span className="text-donathell-main font-bold">Donathell</span>
       </h2>
@@ -22,7 +22,7 @@ export default function AuthForm({ isLoading, type, children, ...props }) {
       </button>
       <Link
         to={`/${isSignup ? "login" : "signup"}`}
-        className="hover:bg-[#555658] hover:text-donathell-secondary rounded-2xl flex items-center justify-center text-donathell-main h-11 duration-200"
+        className="flex h-11 items-center justify-center rounded-2xl px-2 text-center text-sm text-donathell-main duration-200 hover:bg-[#555658] hover:text-donathell-secondary sm:text-base"
       >
         {isSignup
           ? "Have an account? Log in"

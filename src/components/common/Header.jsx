@@ -9,23 +9,25 @@ export default function Header({ isAuthenticated = false }) {
   const { user, logout } = useAuth();
   const { isOpen, setIsOpen, ref } = useClickOutside();
   return (
-    <header className="h-16 border-b border-[#101115] flex justify-center pt-2.5 pb-0.5 sticky top-0 bg-[#141517]">
+    <header className="sticky top-0 z-20 flex h-16 justify-center border-[#101115] border-b bg-[#141517] pt-2.5 pb-0.5">
       <div
-        className={`flex items-center ${isAuthenticated ? "justify-between" : "justify-center"} h-full w-310`}
+        className={`flex h-full w-full max-w-310 items-center px-3 sm:px-4 ${isAuthenticated ? "justify-between gap-2" : "justify-center"}`}
       >
-        <Link to="/" className="rounded-xl px-2.5">
-          <h1 className="text-donathell-main font-bold text-4xl cursor-pointer pb-2 inline-block">
+        <Link to="/" className="min-w-0 shrink rounded-xl px-1 sm:px-2.5">
+          <h1 className="inline-block cursor-pointer pb-2 font-bold text-2xl text-donathell-main sm:text-3xl md:text-4xl">
             Donathell
           </h1>
         </Link>
         {isAuthenticated && (
           <div ref={ref} className="relative">
             <button
-              className="cursor-pointer font-semibold flex items-center justify-center rounded-xl px-2"
+              className="flex max-w-[min(12rem,45vw)] cursor-pointer items-center justify-center rounded-xl px-2 font-semibold"
               onClick={() => setIsOpen(!isOpen)}
             >
               {user ? (
-                <span className="pb-1 text-xl">{user.username}</span>
+                <span className="truncate pb-1 text-base sm:text-xl">
+                  {user.username}
+                </span>
               ) : (
                 <div className="w-26 h-6 bg-[#2b2c2e] rounded animate-pulse" />
               )}
@@ -35,7 +37,7 @@ export default function Header({ isAuthenticated = false }) {
               />
             </button>
             <div
-              className={`absolute overflow-hidden z-10 left-1/2 -translate-x-1/2 top-10 rounded-xl flex flex-col p-1.5 gap-2 ${isOpen ? "opacity-100 max-h-100 pointer-events-auto" : "opacity-0 max-h-0 pointer-events-none"} transition-all duration-150 min-w-42 glass-dropdown`}
+              className={`glass-dropdown absolute top-10 right-0 z-10 flex min-w-42 max-w-[calc(100vw-1.5rem)] flex-col gap-2 overflow-hidden rounded-xl p-1.5 md:right-auto md:left-1/2 md:-translate-x-1/2 ${isOpen ? "pointer-events-auto max-h-100 opacity-100" : "pointer-events-none max-h-0 opacity-0"} transition-all duration-150`}
             >
               <ul className="border-b border-[#2c2c2e] flex flex-col gap-1.5 pb-1.5">
                 <Link

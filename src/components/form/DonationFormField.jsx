@@ -7,7 +7,7 @@ function DonationFormField({ label, inputPlaceholder, value, onChange, type }) {
         {label}
       </label>
       <Input
-        className="max-w-60 p-1"
+        className="w-full max-w-full p-1 sm:max-w-60"
         type={type}
         id={label}
         placeholder={inputPlaceholder}

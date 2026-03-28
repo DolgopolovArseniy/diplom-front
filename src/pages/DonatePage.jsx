@@ -57,8 +57,8 @@ export default function DonatePage() {
     <>
       <title>Donate - Donathell</title>
       <Header />
-      <main className="mx-auto min-h-[calc(100vh-5rem-0.5rem)] flex items-center justify-center text-donathell-secondary max-w-3xl">
-        <div className="flex items-center justify-center flex-col min-h-120 w-full max-w-3xl mb-10 px-4">
+      <main className="mx-auto flex min-h-[calc(100dvh-4rem)] w-full max-w-3xl items-center justify-center px-3 text-donathell-secondary sm:px-4">
+        <div className="mb-10 flex min-h-120 w-full max-w-3xl flex-col items-center justify-center px-1">
           <div className="w-full bg-[#121315]  mb-2.5 rounded-3xl min-h-18 flex  items-center justify-center glass">
             <h2 className="font-bold text-3xl text-donathell-main">
               {user.username}
