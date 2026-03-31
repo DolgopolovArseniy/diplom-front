@@ -5,9 +5,9 @@ import { NAV_LINKS_GENERAL, NAV_LINKS_WIDGETS } from "../../constants/navLinks";
 
 export default function HomeLayout() {
   return (
-    <main className="mx-auto flex w-full max-w-310 flex-col md:flex-row px-3 sm:px-4">
-      <aside className="w-full shrink-0 border-[#101115] border-b md:w-58 md:border-b-0 md:border-r">
-        <div className="sticky top-16 max-h-[min(22rem,50svh)] overflow-y-auto overscroll-contain p-3 sm:p-4 md:max-h-none md:h-[calc(100vh-4rem)]">
+    <main className="mx-auto flex w-full max-w-310 flex-col px-3 pt-16 sm:px-4 md:flex-row">
+      <aside className="w-full shrink-0 border-[#101115] border-b md:fixed md:top-16 md:h-[calc(100dvh-4rem)] md:w-58 md:border-b-0 md:border-r">
+        <div className="p-3 sm:p-4">
           <Nav>
             <section className="flex flex-col gap-0.5">
               <h3 className="text-[#b7b8b7]">General</h3>
@@ -21,7 +21,7 @@ export default function HomeLayout() {
           </Nav>
         </div>
       </aside>
-      <section className="mt-4 min-w-0 flex-1 pb-20 md:mt-7 md:ml-30">
+      <section className="mt-4 min-w-0 flex-1 pb-20 md:mt-7 md:pl-88">
         <Outlet />
       </section>
     </main>
